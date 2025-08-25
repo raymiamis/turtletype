@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include <string.h>
 
 const char* words[] = {
     "the", "be", "and", "of", "a",
@@ -25,6 +27,8 @@ int main() {
     for (int i = 0; i < 10; i++) {
         printf("%s ", words[indices[i]]);
     }
+
+    // TODO: work with user input
 
     return 0;
 }
