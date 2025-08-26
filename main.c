@@ -28,7 +28,25 @@ int main() {
         printf("%s ", words[indices[i]]);
     }
 
-    // TODO: work with user input
+    char input[256];
+    if (fgets(input, sizeof(input), stdin)) {
+        input[strcspn(input, "\n")];
+
+        char* pToken = strtok(input, " ");
+
+        int i;
+        for (i = 0; i < 10 && pToken != NULL; i++) {
+            // TODO: compare tokens to strings
+
+            strtok(NULL, " ");
+        }
+
+        if (i < 10) {
+            printf("You typed less words than given. Separate your words by spaces.\n");
+        }
+    }
+
+    
 
     return 0;
 }
