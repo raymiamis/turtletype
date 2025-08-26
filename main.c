@@ -31,7 +31,8 @@ int main() {
 
         // printing the words
     for (int i = 0; i < 10; i++) {
-        printf("%s ", words[indices[i]]);
+        printf("%s", words[indices[i]]);
+        if (i < 9) printf(" ");
     }
     printf("\n");
 
@@ -47,20 +48,21 @@ int main() {
         int timediff = difftime(end, start);
 
             // deleting the newline char from the input buffer
-        input[strcspn(input, "\n")];
+        input[strcspn(input, "\r\n")] = 0;
 
             // tokenizing the user input
         char* pToken = strtok(input, " ");
 
-        int i;
-        for (i = 0; i < 10 && pToken != NULL; i++) {
+        int i = 0;
+        while (i < 10 && pToken != NULL) {
 
                 // comparing with words
-            if (strcmp(pToken, words[indices[i]])) {
+            if (strcmp(pToken, words[indices[i]]) == 0) {
                 correctWords++;
             }
 
-            strtok(NULL, " ");
+            pToken = strtok(NULL, " ");
+            i++;
         }
 
             // calculating wpm
@@ -71,7 +73,7 @@ int main() {
         if (i < 10) {
             printf("You typed less words than given. Separate your words by spaces.\n");
         } else {
-            printf("Congrats! You typed %d correct words with a speed of %d WPM", correctWords, wpm);
+            printf("Congrats! You typed %d correct words with a speed of %d WPM.", correctWords, wpm);
         }
 
     } else {
