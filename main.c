@@ -12,6 +12,7 @@ const char* words[] = {
 
 int main() {
 
+    int correctWords;
     int indices[30];
     for (int i = 0; i < 30; i++) indices[i] = i;
 
@@ -36,7 +37,9 @@ int main() {
 
         int i;
         for (i = 0; i < 10 && pToken != NULL; i++) {
-            // TODO: compare tokens to strings
+            if (strcmp(pToken, words[indices[i]])) {
+                correctWords++;
+            }
 
             strtok(NULL, " ");
         }
