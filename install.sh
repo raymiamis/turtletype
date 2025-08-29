@@ -8,6 +8,7 @@ INSTALL_PATH="/usr/local/bin"
 echo "Checking GCC Installation..."
 if ! command -v gcc &> /dev/null; then
     echo -e "\e[31mGCC is not installed.\e[0m Please install GCC and try again."
+    exit 1
 fi
 
 echo "Compiling $BINARY_NAME..."
